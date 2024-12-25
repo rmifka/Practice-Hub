@@ -8,3 +8,9 @@
 *{
   font-family: 'Roboto', sans-serif;
 }
+
+a{
+  @apply no-underline text-blue-300 hover:text-blue-400 cursor-pointer transition-all select-none hover:underline underline-offset-4 text-base;
+  font-size: 1rem !important;
+}
+

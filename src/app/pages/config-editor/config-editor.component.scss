@@ -1,0 +1,18 @@
+span{
+  @apply cursor-grab absolute select-none;
+}
+
+label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+input[type=color]{
+  @apply rounded-lg;
+}
+
+input[type=number]{
+  @apply bg-neutral-800 text-neutral-100 border-neutral-700 p-2 rounded-md;
+}
+
+
+

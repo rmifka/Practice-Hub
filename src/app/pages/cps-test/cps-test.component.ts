@@ -1,12 +1,14 @@
 import {Component, HostListener, model, ModelSignal, signal, WritableSignal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {DecimalPipe} from '@angular/common';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-cps-test',
   imports: [
     FormsModule,
-    DecimalPipe
+    DecimalPipe,
+    RouterLink
   ],
   templateUrl: './cps-test.component.html',
   styleUrl: './cps-test.component.scss'
