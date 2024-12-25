@@ -1,0 +1,19 @@
+<div class="flex justify-center items-center h-full">
+
+  <div class="w-full h-24 [&>*]:text-3xl rounded-md text-center [&>*]:mb-4 flex flex-col justify-center items-center">
+    @if (started()) {
+      <span>Timer: {{timer() | number:'1.2'}}</span>
+      <span (keydown.enter)="click()">{{clicks()}}</span>
+    } @else {
+      <span (keydown.enter)="startTest()">Press Enter to Start or click here</span>
+      <select [(ngModel)]="selectedTimeLimit" class="dark-dropdown">
+        @for (limit of timeLimits; track $index) {
+          <option [value]="limit">{{ limit }} seconds</option>
+        }
+      </select>
+      @for (result of results(); track $index) {
+        <span>{{ result.clicks }} / {{ result.timeLimit }} = {{ result.clicks / result.timeLimit }} CPS</span>
+      }
+    }
+  </div>
+</div>
