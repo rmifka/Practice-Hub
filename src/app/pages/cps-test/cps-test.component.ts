@@ -25,14 +25,23 @@ export class CpsTestComponent {
 
   private intervalId: any;
   private timeoutId: any;
+  private keyHeld: boolean = false;
 
   @HostListener('window:keydown.enter', ['$event'])
   handleEnterKey(event: KeyboardEvent) {
-    if (this.started()) {
-      this.click();
-    } else if(!this.onCooldown()) {
-      this.startTest();
+    if (!this.keyHeld) {
+      this.keyHeld = true;
+      if (this.started()) {
+        this.click();
+      } else if (!this.onCooldown()) {
+        this.startTest();
+      }
     }
+  }
+
+  @HostListener('window:keyup.enter', ['$event'])
+  handleEnterKeyUp(event: KeyboardEvent) {
+    this.keyHeld = false;
   }
 
 
